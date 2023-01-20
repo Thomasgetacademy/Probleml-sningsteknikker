@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label id="wordLabel">Your word will show up here.</label> <br>
+    <button onclick="generateWord()">Generate Word</button>
+
+
+    <script>
+        function generateWord() {
+            var wordToReturn = '';
+            for (i = 0; i < 5; i++) {
+                let tall = tilfeldigTall(0, 25);
+                let charcodeA = "a".charCodeAt(0);
+                let tilfeldigBokstav = String.fromCharCode(tall + charcodeA);
+                console.log(tilfeldigBokstav);
+                if (wordToReturn.length === 0 && tilfeldigBokstav === 's') {
+                    wordToReturn += 's';
+                    console.log("S was here");
+                    continue
+                } else if (wordToReturn.length === 1 && tilfeldigBokstav === 'o') {
+                    wordToReturn += 'o';
+                    console.log("O was here");
+                    continue
+                } else if (wordToReturn.length === 2 && tilfeldigBokstav === 'l') {
+                    wordToReturn += 'l';
+                    console.log("L was here");
+                    continue
+                } else if (wordToReturn.length === 3 && tilfeldigBokstav === 'a') {
+                    wordToReturn += 'a';
+                    console.log("A was here");
+                    continue
+                } else if (wordToReturn.length === 4 && tilfeldigBokstav === 'n') {
+                    wordToReturn += 'n';
+                    console.log("N was here");
+                    continue
+                } else {
+                    i--;
+                    continue;
+                }
+            }
+            console.log(wordToReturn);
+            document.getElementById('wordLabel').innerHTML = wordToReturn;
+        }
+
+        function tilfeldigTall(minimum, maksimum) {
+            return Math.floor(Math.random() * (maksimum - minimum + 1));
+        }
+    </script>
+</body>
+
+</html>
